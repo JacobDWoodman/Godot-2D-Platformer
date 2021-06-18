@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://text/MCFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://text/dmgtext.gd" type="Script" id=2]
+
+[node name="dmgtext" type="RichTextLabel"]
+margin_right = 48.0
+margin_bottom = 48.0
+custom_fonts/normal_font = ExtResource( 1 )
+visible_characters = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

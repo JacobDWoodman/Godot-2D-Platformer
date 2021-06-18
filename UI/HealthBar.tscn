@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/HealthBar.gd" type="Script" id=1]
+[ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=2]
+[ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=3]
+
+[node name="HealthBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthUIEmpty" type="TextureRect" parent="."]
+margin_right = 15.0
+margin_bottom = 11.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="HealthUIFull" type="TextureRect" parent="."]
+margin_right = 15.0
+margin_bottom = 11.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

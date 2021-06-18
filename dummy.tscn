@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://zones_boxes/hurtbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/scarecrow.png" type="Texture" id=2]
+[ext_resource path="res://dummy.gd" type="Script" id=3]
+[ext_resource path="res://stats.tscn" type="PackedScene" id=4]
+
+
+[node name="scarecrow" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -50 )
+texture = ExtResource( 2 )
+
+[node name="hurtbox" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -48 )
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionPolygon2D" parent="hurtbox" index="0"]
+position = Vector2( 0, 48 )
+polygon = PoolVector2Array( 0, 0, -8, -24, -32, -24, -32, -32, -16, -48, -16, -72, 0, -80, 8, -72, 16, -56, 24, -56, 16, -32, 8, 0 )
+
+[node name="stats" parent="." instance=ExtResource( 4 )]
+max_health = 2
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
+
+[editable path="hurtbox"]

@@ -1,0 +1,322 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://sprites/spritesheetpng.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://hitbox.tscn" type="PackedScene" id=3]
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.5893
+height = 34.0068
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.68071, 11.6763 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "JumpFall"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 24, 25, 26 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "JumpStart"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 22, 23 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "altattack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20, 19, 18 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/kick_hitbox/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_reset_state"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 16 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/jab_hitbox/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_reset_state"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "summon_tiger"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 29, 30, 31 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_summon_tiger"
+}, {
+"args": [  ],
+"method": "_reset_state"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 15 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "JumpFall"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "JumpStart"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "altattack"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "attack"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "summon_tiger"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachine" id=31]
+states/JumpFall/node = SubResource( 10 )
+states/JumpFall/position = Vector2( 172, 82 )
+states/JumpStart/node = SubResource( 11 )
+states/JumpStart/position = Vector2( 356, 82 )
+states/altattack/node = SubResource( 12 )
+states/altattack/position = Vector2( 331, 334.22 )
+states/attack/node = SubResource( 13 )
+states/attack/position = Vector2( 274, 263.22 )
+states/idle/node = SubResource( 14 )
+states/idle/position = Vector2( 274, 177 )
+states/summon_tiger/node = SubResource( 15 )
+states/summon_tiger/position = Vector2( 44, 177 )
+states/walk/node = SubResource( 16 )
+states/walk/position = Vector2( 465, 177 )
+transitions = [ "idle", "walk", SubResource( 17 ), "walk", "idle", SubResource( 18 ), "idle", "JumpStart", SubResource( 19 ), "walk", "JumpStart", SubResource( 20 ), "JumpStart", "JumpFall", SubResource( 21 ), "JumpFall", "idle", SubResource( 22 ), "walk", "attack", SubResource( 23 ), "idle", "attack", SubResource( 24 ), "attack", "idle", SubResource( 25 ), "walk", "altattack", SubResource( 26 ), "altattack", "idle", SubResource( 27 ), "idle", "altattack", SubResource( 28 ), "summon_tiger", "idle", SubResource( 29 ), "idle", "summon_tiger", SubResource( 30 ) ]
+start_node = "idle"
+graph_offset = Vector2( -97, 102.96 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=32]
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -48 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 27
+frame = 5
+
+[node name="body" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -32 )
+shape = SubResource( 1 )
+
+[node name="groundchecker" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4.68664 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/JumpFall = SubResource( 3 )
+anims/JumpStart = SubResource( 4 )
+anims/altattack = SubResource( 5 )
+anims/attack = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/summon_tiger = SubResource( 8 )
+anims/walk = SubResource( 9 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 31 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 32 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -32 )
+
+[node name="jab_hitbox" parent="Position2D" instance=ExtResource( 3 )]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionPolygon2D" parent="Position2D/jab_hitbox" index="0"]
+polygon = PoolVector2Array( 15.8075, -7.2059, 39.8075, -15.2059, 47.8075, -15.2059, 47.8075, 8.7941, 31.8075, 8.7941, 15.8075, 0.794102 )
+disabled = true
+
+[node name="kick_hitbox" parent="Position2D" instance=ExtResource( 3 )]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionPolygon2D" parent="Position2D/kick_hitbox" index="0"]
+polygon = PoolVector2Array( 8, 32, 32, 32, 32, 16, 8, 0, 0, 8, 8, 24 )
+disabled = true
+
+[node name="tiger_spawnpoint" type="Position2D" parent="Position2D"]
+position = Vector2( 24, 0 )
+
+[editable path="Position2D/jab_hitbox"]
+
+[editable path="Position2D/kick_hitbox"]
