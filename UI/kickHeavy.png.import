@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/goldbricks.png-d0d44c44bc61e29efb92b72d6aa804ef.stex"
+path="res://.import/kickHeavy.png-d544e9eb64cd2308a8121f774a2f0fdf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/goldbricks.png"
-dest_files=[ "res://.import/goldbricks.png-d0d44c44bc61e29efb92b72d6aa804ef.stex" ]
+source_file="res://UI/kickHeavy.png"
+dest_files=[ "res://.import/kickHeavy.png-d544e9eb64cd2308a8121f774a2f0fdf.stex" ]
 
 [params]
 

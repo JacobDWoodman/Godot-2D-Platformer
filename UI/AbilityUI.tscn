@@ -1,0 +1,204 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/briefCase.png" type="Texture" id=1]
+[ext_resource path="res://UI/abilityUI.png" type="Texture" id=2]
+[ext_resource path="res://UI/kickLight.png" type="Texture" id=3]
+[ext_resource path="res://UI/punchLight.png" type="Texture" id=4]
+[ext_resource path="res://UI/kickHeavy.png" type="Texture" id=5]
+[ext_resource path="res://UI/secretTiger.png" type="Texture" id=6]
+[ext_resource path="res://UI/punchHeavy.png" type="Texture" id=7]
+[ext_resource path="res://UI/AbilityUI.gd" type="Script" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Normal"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpecialAttacks:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.0323521 ),
+"update": 0,
+"values": [ Vector2( 0, 36 ), Vector2( 10, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpecialAttacks:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.0323521 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 1.2, 1.2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RegularAttacks:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.0323521 ),
+"update": 0,
+"values": [ Vector2( 10, 0 ), Vector2( 0, 36 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RegularAttacks:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.0323521 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 0.8, 0.8 ) ]
+}
+
+[node name="AbilityUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpecialAttacks" type="Control" parent="."]
+margin_top = 36.0
+margin_right = 40.0
+margin_bottom = 76.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIBox0" type="TextureRect" parent="SpecialAttacks"]
+margin_right = 30.0
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIBox1" type="TextureRect" parent="SpecialAttacks"]
+margin_left = 36.0
+margin_right = 66.0
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIBox2" type="TextureRect" parent="SpecialAttacks"]
+margin_left = 72.0
+margin_right = 102.0
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability3" type="TextureRect" parent="SpecialAttacks"]
+margin_right = 30.0
+margin_bottom = 22.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability4" type="TextureRect" parent="SpecialAttacks"]
+margin_left = 36.0
+margin_right = 66.0
+margin_bottom = 22.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability5" type="TextureRect" parent="SpecialAttacks"]
+margin_left = 72.0
+margin_right = 102.0
+margin_bottom = 22.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RegularAttacks" type="Control" parent="."]
+margin_left = 10.0
+margin_right = 50.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+
+[node name="UIBox5" type="TextureRect" parent="RegularAttacks"]
+margin_left = 72.0
+margin_right = 102.0
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIBox4" type="TextureRect" parent="RegularAttacks"]
+margin_left = 36.0
+margin_right = 66.0
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIBox3" type="TextureRect" parent="RegularAttacks"]
+margin_right = 30.0
+margin_bottom = 22.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability0" type="TextureRect" parent="RegularAttacks"]
+margin_right = 30.0
+margin_bottom = 22.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability1" type="TextureRect" parent="RegularAttacks"]
+margin_left = 36.0
+margin_right = 66.0
+margin_bottom = 22.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability2" type="TextureRect" parent="RegularAttacks"]
+margin_left = 72.0
+margin_right = 102.0
+margin_bottom = 22.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Normal = SubResource( 1 )

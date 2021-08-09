@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-export(int) var move_speed = 50
+export(int) var move_speed = 150
 var input = "0" setget set_input
 
 func set_input(change):
@@ -9,7 +9,7 @@ func set_input(change):
 
 func _process(delta):
 	get_parent().global_position.y -= move_speed * delta
-	move_speed -= move_speed * delta
+	move_speed -= move_speed * (delta * 3)
 
 func _on_Timer_timeout():
 	queue_free()

@@ -24,7 +24,7 @@ func create_hitEffect():
 	var effect = HitEffect.instance()
 	var main = get_tree().current_scene
 	main.add_child(effect)
-	effect.global_position = global_position
+	effect.global_position = global_position + Vector2(rand_range(-20, 20), rand_range(-30, -80))
 
 func create_dmgNumber(num):
 	var effect = DmgNumber.instance()

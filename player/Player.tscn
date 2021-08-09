@@ -492,7 +492,7 @@ states/walk/node = SubResource( 26 )
 states/walk/position = Vector2( 465, 177 )
 transitions = [ "idle", "walk", SubResource( 27 ), "walk", "idle", SubResource( 28 ), "idle", "JumpStart", SubResource( 29 ), "walk", "JumpStart", SubResource( 30 ), "JumpStart", "JumpFall", SubResource( 31 ), "JumpFall", "idle", SubResource( 32 ), "walk", "attack", SubResource( 33 ), "idle", "attack", SubResource( 34 ), "attack", "idle", SubResource( 35 ), "walk", "altattack", SubResource( 36 ), "altattack", "idle", SubResource( 37 ), "idle", "altattack", SubResource( 38 ), "summon_tiger", "idle", SubResource( 39 ), "idle", "summon_tiger", SubResource( 40 ), "throwCase", "catchCase", SubResource( 41 ), "idle", "throwCase", SubResource( 42 ), "catchCase", "idle", SubResource( 43 ), "Hit", "idle", SubResource( 44 ), "idle", "Hit", SubResource( 45 ), "walk", "heavyattack", SubResource( 46 ), "walk", "heavyaltattack", SubResource( 47 ), "idle", "heavyaltattack", SubResource( 48 ), "idle", "heavyattack", SubResource( 49 ), "heavyattack", "idle", SubResource( 50 ), "heavyaltattack", "idle", SubResource( 51 ) ]
 start_node = "idle"
-graph_offset = Vector2( 78.5304, 21.7543 )
+graph_offset = Vector2( 78.5304, 113.794 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=53]
 
@@ -538,10 +538,10 @@ active = true
 parameters/playback = SubResource( 53 )
 
 [node name="Position2D" type="Position2D" parent="."]
-visible = false
 position = Vector2( 0, -32 )
 
 [node name="jab_hitbox" parent="Position2D" instance=ExtResource( 3 )]
+visible = false
 collision_layer = 4
 collision_mask = 8
 
@@ -550,6 +550,7 @@ polygon = PoolVector2Array( 15.8075, -7.2059, 39.8075, -15.2059, 47.8075, -15.20
 disabled = true
 
 [node name="kick_hitbox" parent="Position2D" instance=ExtResource( 3 )]
+visible = false
 collision_layer = 4
 collision_mask = 8
 
@@ -558,6 +559,7 @@ polygon = PoolVector2Array( 8, 32, 32, 32, 32, 16, 8, 0, 0, 8, 8, 24 )
 disabled = true
 
 [node name="tiger_spawnpoint" type="Position2D" parent="Position2D"]
+visible = false
 position = Vector2( 24, 0 )
 
 [node name="catchBriefCase" parent="Position2D" instance=ExtResource( 4 )]
@@ -573,10 +575,15 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionPolygon2D" parent="Position2D/LoseBriefCase" index="0"]
-position = Vector2( 48, 0 )
+position = Vector2( 112, 0 )
 polygon = PoolVector2Array( 320, -32, 320, 32, 336, 32, 336, -32 )
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Position2D/LoseBriefCase"]
+position = Vector2( -48, 0 )
+polygon = PoolVector2Array( 0, 32, 0, -32, 16, -32, 16, 32 )
+
 [node name="hurtbox" parent="Position2D" instance=ExtResource( 4 )]
+visible = false
 collision_layer = 64
 collision_mask = 0
 
@@ -585,12 +592,20 @@ position = Vector2( 0, 32 )
 polygon = PoolVector2Array( -16, 0, -8, -32, -8, -48, 0, -56, 8, -48, 8, -32, 16, 0 )
 
 [node name="heavy_hitbox" parent="Position2D" instance=ExtResource( 3 )]
+visible = false
+collision_layer = 4
+collision_mask = 8
+damage = 2
 
 [node name="CollisionPolygon2D" parent="Position2D/heavy_hitbox" index="0"]
 polygon = PoolVector2Array( 0, 16, 24, 8, 56, -24, 64, -32, 64, -40, 48, -56, 32, -56, 0, -8 )
 disabled = true
 
 [node name="heavykick_hitbox" parent="Position2D" instance=ExtResource( 3 )]
+visible = false
+collision_layer = 4
+collision_mask = 8
+damage = 2
 
 [node name="CollisionPolygon2D" parent="Position2D/heavykick_hitbox" index="0"]
 polygon = PoolVector2Array( 0, 8, 40, 16, 48, 0, 40, -16, 0, -8 )
